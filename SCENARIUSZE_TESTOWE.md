@@ -2,66 +2,64 @@
 
 ## User Story
 
-**Jako** użytkownik systemu,  
-**Chcę** móc zalogować się do aplikacji,  
-**Aby** uzyskać dostęp do swoich danych i funkcjonalności systemu.
-
-**Kryteria akceptacji:**
-1. Użytkownik może zalogować się podając poprawny adres e-mail i hasło.
-2. System wyświetla komunikat błędu przy podaniu niepoprawnych danych logowania.
-3. Użytkownik może zresetować hasło za pomocą adresu e-mail.
-4. Po 3 nieudanych próbach logowania konto zostaje tymczasowo zablokowane.
-5. Zalogowany użytkownik może się wylogować.
-
----
+**Jako** użytkownik strony Osadkowski.pl,  
+**chcę** mieć informację o adresie i sposobie dostawy mojego zamówienia,  
+**aby** wiedzieć gdzie i jak zostanie ono dostarczone.
 
 ## Tabela Scenariuszy Testowych
 
 ||Lista scenariuszy||Wynik oczekiwany||Weryfikacja QA||
-|*SC-001 Logowanie z poprawnymi danymi*| | |
-|Krok 1: Otwórz stronę logowania aplikacji|Strona logowania jest widoczna z polami: e-mail, hasło oraz przyciskiem "Zaloguj"| |
-|Krok 2: Wprowadź poprawny adres e-mail zarejestrowanego użytkownika (np. test@example.com)|Pole e-mail jest uzupełnione poprawnym adresem| |
-|Krok 3: Wprowadź poprawne hasło dla danego użytkownika|Pole hasło jest uzupełnione (znaki są maskowane)| |
-|Krok 4: Kliknij przycisk "Zaloguj"|Użytkownik zostaje zalogowany i przekierowany na stronę główną (dashboard). Wyświetlone jest powitanie z imieniem użytkownika.| |
+|*SC-001 Wyświetlenie kafelka „Adres dostawy” dla zamówienia z eCommerce z dostawą do paczkomatu*| | |
+|Krok 1: Zaloguj się do Osadkowski.pl jako użytkownik posiadający zamówienie eCommerce z wybraną dostawą do paczkomatu|Użytkownik jest zalogowany i ma dostęp do listy zamówień| |
+|Krok 2: Otwórz szczegóły wskazanego zamówienia|Widok szczegółów zamówienia zostaje wyświetlony| |
+|Krok 3: Odszukaj sekcję z informacjami o dostawie|Widoczny jest kafelek „Adres dostawy”| |
+|Krok 4: Zweryfikuj treść kafelka|W kafelku prezentowane są: „Punkt odbioru: {nr paczkomatu}” oraz adres paczkomatu zgodny z danymi zamówienia| |
 
 ||Lista scenariuszy||Wynik oczekiwany||Weryfikacja QA||
-|*SC-002 Logowanie z niepoprawnym hasłem*| | |
-|Krok 1: Otwórz stronę logowania aplikacji|Strona logowania jest widoczna| |
-|Krok 2: Wprowadź poprawny adres e-mail zarejestrowanego użytkownika|Pole e-mail jest uzupełnione| |
-|Krok 3: Wprowadź niepoprawne hasło|Pole hasło jest uzupełnione| |
-|Krok 4: Kliknij przycisk "Zaloguj"|System wyświetla komunikat błędu: "Nieprawidłowy adres e-mail lub hasło". Użytkownik pozostaje na stronie logowania.| |
+|*SC-002 Wyświetlenie kafelka „Adres dostawy” dla zamówienia eCommerce z dostawą na adres*| | |
+|Krok 1: Zaloguj się do Osadkowski.pl jako użytkownik posiadający zamówienie eCommerce z dostawą na adres|Użytkownik jest zalogowany i ma dostęp do listy zamówień| |
+|Krok 2: Otwórz szczegóły wskazanego zamówienia|Widok szczegółów zamówienia zostaje wyświetlony| |
+|Krok 3: Odszukaj kafelek „Adres dostawy”|Kafelek „Adres dostawy” jest widoczny| |
+|Krok 4: Zweryfikuj dane prezentowane w kafelku|Kafelek pokazuje kod pocztowy i miasto oraz linię adresową z ulicą, numerem domu i numerem mieszkania zgodne z danymi podanymi przy składaniu zamówienia| |
 
 ||Lista scenariuszy||Wynik oczekiwany||Weryfikacja QA||
-|*SC-003 Logowanie z niepoprawnym adresem e-mail*| | |
-|Krok 1: Otwórz stronę logowania aplikacji|Strona logowania jest widoczna| |
-|Krok 2: Wprowadź nieistniejący adres e-mail (np. nieznany@example.com)|Pole e-mail jest uzupełnione| |
-|Krok 3: Wprowadź dowolne hasło|Pole hasło jest uzupełnione| |
-|Krok 4: Kliknij przycisk "Zaloguj"|System wyświetla komunikat błędu: "Nieprawidłowy adres e-mail lub hasło". Użytkownik pozostaje na stronie logowania.| |
+|*SC-003 Wyświetlenie kafelka „Adres dostawy” dla zamówienia złożonego przez PH*| | |
+|Krok 1: Zaloguj się do Osadkowski.pl jako użytkownik posiadający zamówienie złożone przez PH|Użytkownik jest zalogowany i ma dostęp do listy zamówień| |
+|Krok 2: Otwórz szczegóły zamówienia złożonego przez PH|Widok szczegółów zamówienia zostaje wyświetlony| |
+|Krok 3: Odszukaj sekcję dostawy|Widoczny jest kafelek „Adres dostawy”| |
+|Krok 4: Zweryfikuj dane kafelka zgodnie z typem dostawy zamówienia|Dla paczkomatu wyświetlane są numer i adres paczkomatu, a dla dostawy na adres wyświetlane są odpowiednie linie adresowe zgodne z zamówieniem| |
 
 ||Lista scenariuszy||Wynik oczekiwany||Weryfikacja QA||
-|*SC-004 Logowanie z pustymi polami*| | |
-|Krok 1: Otwórz stronę logowania aplikacji|Strona logowania jest widoczna| |
-|Krok 2: Pozostaw pola e-mail i hasło puste|Pola są puste| |
-|Krok 3: Kliknij przycisk "Zaloguj"|System wyświetla komunikaty walidacji: "Pole e-mail jest wymagane", "Pole hasło jest wymagane". Formularz nie zostaje wysłany.| |
+|*SC-004 Brak kafelka „Adres dostawy” dla zamówienia historycznego bez danych deliveryAddress*| | |
+|Krok 1: Zaloguj się do Osadkowski.pl jako użytkownik posiadający historyczne zamówienie bez danych adresu dostawy|Użytkownik jest zalogowany i ma dostęp do listy zamówień| |
+|Krok 2: Otwórz szczegóły historycznego zamówienia|Widok szczegółów zamówienia zostaje wyświetlony| |
+|Krok 3: Zweryfikuj sekcję z informacjami o dostawie|Kafelek „Adres dostawy” nie jest prezentowany| |
+|Krok 4: Zweryfikuj stabilność widoku szczegółów zamówienia|Brak danych adresowych nie powoduje błędu ani nieprawidłowego układu strony| |
 
 ||Lista scenariuszy||Wynik oczekiwany||Weryfikacja QA||
-|*SC-005 Blokada konta po 3 nieudanych próbach logowania*| | |
-|Krok 1: Otwórz stronę logowania aplikacji|Strona logowania jest widoczna| |
-|Krok 2: Wprowadź poprawny e-mail i niepoprawne hasło, kliknij "Zaloguj" (1. próba)|System wyświetla komunikat błędu. Konto nie jest jeszcze zablokowane.| |
-|Krok 3: Wprowadź poprawny e-mail i niepoprawne hasło, kliknij "Zaloguj" (2. próba)|System wyświetla komunikat błędu. Konto nie jest jeszcze zablokowane.| |
-|Krok 4: Wprowadź poprawny e-mail i niepoprawne hasło, kliknij "Zaloguj" (3. próba)|System wyświetla komunikat: "Konto zostało tymczasowo zablokowane z powodu zbyt wielu nieudanych prób logowania. Spróbuj ponownie za 15 minut."| |
-|Krok 5: Spróbuj zalogować się poprawnym hasłem w czasie blokady|System wyświetla komunikat o blokadzie konta. Logowanie nie jest możliwe.| |
+|*SC-005 Prezentacja akcji „Ponów płatność” w kafelku „Termin płatności”*| | |
+|Krok 1: Zaloguj się do Osadkowski.pl jako użytkownik posiadający zamówienie spełniające warunki do ponowienia płatności|Użytkownik jest zalogowany i ma dostęp do szczegółów zamówienia| |
+|Krok 2: Otwórz szczegóły wskazanego zamówienia|Widok szczegółów zamówienia zostaje wyświetlony| |
+|Krok 3: Zweryfikuj sekcję nagłówkową i kafelki informacyjne|Akcja „Ponów płatność” jest dostępna w kafelku „Termin płatności” zgodnie z założeniami funkcjonalnymi| |
+|Krok 4: Zweryfikuj pozostałe kafelki nagłówka|Akcja „Ponów płatność” nie jest prezentowana w innym miejscu nagłówka| |
 
 ||Lista scenariuszy||Wynik oczekiwany||Weryfikacja QA||
-|*SC-006 Reset hasła – wysłanie e-maila resetującego*| | |
-|Krok 1: Otwórz stronę logowania aplikacji|Strona logowania jest widoczna| |
-|Krok 2: Kliknij link "Zapomniałem hasła"|Użytkownik zostaje przekierowany na stronę resetowania hasła z polem na adres e-mail| |
-|Krok 3: Wprowadź adres e-mail zarejestrowanego użytkownika|Pole e-mail jest uzupełnione| |
-|Krok 4: Kliknij przycisk "Wyślij link resetujący"|System wyświetla komunikat: "Link do resetowania hasła został wysłany na podany adres e-mail." Wiadomość e-mail z linkiem zostaje dostarczona.| |
+|*SC-006 Brak kafelka „Wartość brutto” w nagłówku szczegółów zamówienia eCare*| | |
+|Krok 1: Zaloguj się do Osadkowski.pl jako użytkownik posiadający dostęp do szczegółów zamówienia w eCare|Użytkownik jest zalogowany| |
+|Krok 2: Otwórz szczegóły dowolnego zamówienia objętego zmianą|Widok szczegółów zamówienia zostaje wyświetlony| |
+|Krok 3: Zweryfikuj nagłówek szczegółów zamówienia|Kafelek „Wartość brutto” nie jest wyświetlany w nagłówku| |
+|Krok 4: Zweryfikuj pozostałe dane nagłówka|Pozostałe wymagane informacje w nagłówku są widoczne i układ strony pozostaje poprawny| |
 
 ||Lista scenariuszy||Wynik oczekiwany||Weryfikacja QA||
-|*SC-007 Wylogowanie z aplikacji*| | |
-|Krok 1: Zaloguj się do aplikacji poprawnymi danymi|Użytkownik jest zalogowany i widzi stronę główną| |
-|Krok 2: Kliknij ikonę/menu użytkownika w prawym górnym rogu|Pojawia się menu z opcją "Wyloguj"| |
-|Krok 3: Kliknij opcję "Wyloguj"|Użytkownik zostaje wylogowany i przekierowany na stronę logowania. Sesja użytkownika zostaje zakończona.| |
-|Krok 4: Spróbuj cofnąć się w przeglądarce (przycisk "Wstecz")|Użytkownik nie ma dostępu do chronionych stron – zostaje przekierowany z powrotem na stronę logowania.| |
+|*SC-007 Poprawność prezentacji linii adresowych dla dostawy na adres*| | |
+|Krok 1: Zaloguj się do Osadkowski.pl jako użytkownik posiadający zamówienie z dostawą na adres, w którym dostępne są dane: ulica, numer domu/lokalu, kod pocztowy i miasto|Użytkownik jest zalogowany| |
+|Krok 2: Otwórz szczegóły zamówienia|Widok szczegółów zamówienia zostaje wyświetlony| |
+|Krok 3: Odszukaj kafelek „Adres dostawy”|Kafelek jest widoczny| |
+|Krok 4: Porównaj treść linii adresowych z danymi źródłowymi zamówienia|Linie adresowe są zbudowane poprawnie i zawierają komplet danych adresowych w oczekiwanej kolejności, bez brakujących lub zduplikowanych elementów| |
+
+||Lista scenariuszy||Wynik oczekiwany||Weryfikacja QA||
+|*SC-008 Brak jednoczesnej prezentacji paczkomatu i adresu dla jednego zamówienia*| | |
+|Krok 1: Otwórz szczegóły zamówienia z dostawą do paczkomatu|Widok szczegółów zamówienia zostaje wyświetlony| |
+|Krok 2: Zweryfikuj zawartość kafelka „Adres dostawy”|Prezentowane są wyłącznie dane paczkomatu, bez dodatkowych linii adresowych dla dostawy na adres| |
+|Krok 3: Otwórz szczegóły zamówienia z dostawą na adres|Widok szczegółów zamówienia zostaje wyświetlony| |
+|Krok 4: Zweryfikuj zawartość kafelka „Adres dostawy”|Prezentowane są wyłącznie linie adresowe dla dostawy na adres, bez informacji „Punkt odbioru”| |
